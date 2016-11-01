@@ -4,7 +4,7 @@
 
 
 //This is the Book class of the Lending Library Application.
-package com.fosmanhost;
+package com.fosmanhost.lendinglibrary.models;
 
 public class Book
 {

@@ -1,4 +1,4 @@
-package com.fosmanhost;
+package com.fosmanhost.lendlibrary.utilities;
 
 public enum GenderType 
 {

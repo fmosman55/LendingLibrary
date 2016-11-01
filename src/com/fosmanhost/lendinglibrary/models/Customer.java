@@ -3,7 +3,9 @@
 //Date:27/10/2015............................End of the course will be.......
 //This is the customer class of the Lending Library Application.
 
-package com.fosmanhost;
+package com.fosmanhost.lendinglibrary.models;
+
+import com.fosmanhost.lendlibrary.utilities.GenderType;
 
 public class Customer
 {

@@ -1,9 +1,11 @@
-
 // This is a course of Java Programming Language course provided by Virtual Pair Programming on Java.
 //Author: Fasial Osman and I will be doing this course until I finish it. Wish me LUCK.
 //Date:27/10/2015............................End of the course will be.......
 
-package com.fosmanhost;
+package com.fosmanhost.lendinglibrary.ui;
+
+import com.fosmanhost.lendinglibrary.models.Book;
+import com.fosmanhost.lendinglibrary.models.BookCatalog;
 
 public class Main {
 	public static void main(String[] args)
