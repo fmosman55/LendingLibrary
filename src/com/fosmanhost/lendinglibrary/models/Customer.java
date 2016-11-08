@@ -171,9 +171,6 @@ public class Customer
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
-
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

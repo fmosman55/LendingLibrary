@@ -16,18 +16,13 @@ public class Book extends Material
 	
 	//Constructions
 	public Book(int id, String title, String author, String isbn, String branch, int noOfPages)
-	{
-
-		super(id, title, branch);
+	{	super(id, title, branch);
 		this.author = author;
 		this.isbn = isbn;
 		this.noOfPages =  noOfPages;
 	}
 	
 	//Getter Methods
-
-
-
 
 	public String getAuthor() {
 		return author;

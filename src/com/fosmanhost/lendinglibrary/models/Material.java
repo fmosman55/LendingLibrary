@@ -1,4 +1,4 @@
-package com.fosmanhost.lendinglibrary.models;
+
 //This is a course of Java Programming Language course provided by Virtual Pair Programming on Java.
 //Author: Fasial Osman and I will be doing this course until I finish it. Wish me LUCK.
 //Date:07/11/2016............................End of the course will be.......
@@ -7,6 +7,8 @@ package com.fosmanhost.lendinglibrary.models;
 
 // abstract class. Abstract classes cannot instantiated (such as Material material = new Material) 
 //and they are a way of restricting programming loop-holes.
+
+package com.fosmanhost.lendinglibrary.models;
 public abstract class Material 
 {
 	private int id;

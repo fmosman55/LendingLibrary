@@ -12,8 +12,12 @@ import java.util.Locale;
 
 import com.fosmanhost.lendinglibrary.models.Book;
 import com.fosmanhost.lendinglibrary.models.BookCatalog;
+import com.fosmanhost.lendinglibrary.models.BookNotFoundException;
 import com.fosmanhost.lendinglibrary.models.Customer;
 import com.fosmanhost.lendinglibrary.models.DVD;
+import com.fosmanhost.lendinglibrary.models.Loan;
+import com.fosmanhost.lendinglibrary.models.LoanAlreadyExistsException;
+import com.fosmanhost.lendinglibrary.models.LoansRegistry;
 import com.fosmanhost.lendlibrary.utilities.GenderType;
 
 public class Main {
@@ -62,7 +66,7 @@ public class Main {
 		//Book book2 = new Book(2,"More Better in Java", "Abdul Hussein", "34567");
 		DVD dvd1 = new DVD(1,"Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
 		DVD dvd2 = new DVD(1,"Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
-		
+
 		DVD dvd3 = new DVD(2,"Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",200);
 		//bookCatalog[0] = book1;
 		//bookCatalog[1] = book2;
@@ -96,31 +100,49 @@ public class Main {
 		System.out.println(book1.lend(customer));
 		System.out.println("Books can be loaned for: "+book1.getLoanPeriod()+" days");
 		System.out.println("..........................For find method........................................");
-		Book foundBook = bookCatalog.findBook("Better in Java");
 
-		if(foundBook != null)
-		{
+
+		try {
+
+			Book foundBook = bookCatalog.findBook("Better in Java");
 			System.out.println("We found your book of: "+foundBook.getTitle());
 		}
-		else {
+
+		catch (BookNotFoundException e)
+		{
 			System.out.println("Sorry!! We cound not find the book you are looking for:");
 		}
 
-		//to lend a book to a customer
-		System.out.println(book1.lend(customer));
+		//lending a book to a customer
+		System.out.println("..........................Lending........................................");
+		Loan firstLoan = new Loan(1,customer, book1); 
+		System.out.println(firstLoan.getDueDate());
+		System.out.println(firstLoan);
 		
+		System.out.println("..........................is Book on loan?........................................");
 		
-		//System.out.println(customer);
-		//System.out.println(dvd1);
-		//System.out.println(book1);
+		LoansRegistry registry = new LoansRegistry();
+		try {
+			registry.addLoan(firstLoan);
+			System.out.println("Add Loan worked");
+		}
+		catch(LoanAlreadyExistsException e)
+		{
+			System.out.println("Add Loan Failed");
+		}
 		
-		System.out.println("..........................Compare two objects........................................");
-		System.out.println(dvd1.equals(dvd2));
-		System.out.println(dvd1.equals(dvd3));
-		
+		//repeated add loan to check if it fails 
+		//LoansRegistry registry = new LoansRegistry();
+		try {
+			registry.addLoan(firstLoan);
+			System.out.println("Add Loan worked");
+		}
+		catch(LoanAlreadyExistsException e)
+		{
+			System.out.println("Add Loan Failed");
+		}
+		System.out.println(registry.isBookOnLoan(book1.getId()));
+		firstLoan.endLoan();
+		System.out.println(registry.isBookOnLoan(book1.getId()));
 	}
-
-
-}   
-
-
+}
