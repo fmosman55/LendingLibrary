@@ -14,11 +14,11 @@ private String catalogNo;
 private int runningTime;
 private boolean licenced;
 
-public DVD(int id, String title, String branch, String director, String catalogNo, int runningTime)
+public DVD(String id, String title, String branch, String director, String catalogNo, int runningTime)
 {
 	super(id, title, branch);
 	this.director = director;
-	this.catalogNo = catalogNo;
+	this.setCatalogNo(catalogNo);
 	this.runningTime = runningTime;
 	licenced = false;
 }
@@ -41,6 +41,14 @@ public boolean lend(Customer customer)
 }
 
 //Overriden Method
-public int getLoanPeriod()
-{return 21;}
+public String getLoanPeriod()
+{return "21";}
+
+public String getCatalogNo() {
+	return catalogNo;
+}
+
+public void setCatalogNo(String catalogNo) {
+	this.catalogNo = catalogNo;
+}
 }

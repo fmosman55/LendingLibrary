@@ -15,7 +15,7 @@ public class Book extends Material
 	private int noOfPages;
 	
 	//Constructions
-	public Book(int id, String title, String author, String isbn, String branch, int noOfPages)
+	public Book(String id, String title, String author, String isbn, String branch, int noOfPages)
 	{	super(id, title, branch);
 		this.author = author;
 		this.isbn = isbn;
@@ -58,7 +58,7 @@ public class Book extends Material
 	}
 	
 	//Overriden Method
-	public int getLoanPeriod()
-	{return 7;}
+	public String getLoanPeriod()
+	{return "7";}
 
 }

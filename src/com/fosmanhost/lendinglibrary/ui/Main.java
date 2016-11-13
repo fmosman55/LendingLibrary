@@ -14,7 +14,6 @@ import com.fosmanhost.lendinglibrary.models.Book;
 import com.fosmanhost.lendinglibrary.models.BookCatalog;
 import com.fosmanhost.lendinglibrary.models.BookNotFoundException;
 import com.fosmanhost.lendinglibrary.models.Customer;
-import com.fosmanhost.lendinglibrary.models.DVD;
 import com.fosmanhost.lendinglibrary.models.Loan;
 import com.fosmanhost.lendinglibrary.models.LoanAlreadyExistsException;
 import com.fosmanhost.lendinglibrary.models.LoansRegistry;
@@ -24,13 +23,12 @@ public class Main {
 	public static void main(String[] args)
 	{	
 
-
 		Date today = new Date();
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM YYY");
-		GregorianCalendar gCal = new GregorianCalendar(2016,10,10);
+		GregorianCalendar gCal = new GregorianCalendar(2016,11,10);// yyy/mm/dd
 
-		gCal.add(GregorianCalendar.AM_PM,307);
+		gCal.add(GregorianCalendar.YEAR,5);
 		today =  gCal.getTime();
 
 		System.out.println(sdf.format(today));
@@ -61,13 +59,16 @@ public class Main {
 		//Book[] bookCatalog= new Book[10];
 		BookCatalog bookCatalog = new BookCatalog();
 
-		Book book1 = new Book(1,"Better in Java", "Faisal Osman","12345", "Mogadishu", 400);
-		Book book2 = new Book(1,"More Better in Java", "Abdul Hussein","34567", "Harringay",450);
+		Book book1 = new Book("1123","Better in Java", "Faisal Osman","12345", "Mogadishu", 400);
+		Book book2 = new Book("299X","Nutshell in Java", "Abdul Hussein","34567", "Harringay",450);
+		Book book3 = new Book("X100X","Mastering Java", "Faisal Osman","12345", "Mogadishu", 400);
+		Book book4 = new Book("199L","More Better in Java", "Abdul Hussein","34567", "Harringay",450);
+		
 		//Book book2 = new Book(2,"More Better in Java", "Abdul Hussein", "34567");
-		DVD dvd1 = new DVD(1,"Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
-		DVD dvd2 = new DVD(1,"Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
+		//DVD dvd1 = new DVD("1","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
+		//DVD dvd2 = new DVD("1","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
 
-		DVD dvd3 = new DVD(2,"Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",200);
+		//DVD dvd3 = new DVD("2","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",200);
 		//bookCatalog[0] = book1;
 		//bookCatalog[1] = book2;
 
@@ -75,22 +76,24 @@ public class Main {
 
 		bookCatalog.addBook(book1);
 		bookCatalog.addBook(book2);
-
+		bookCatalog.addBook(book3);
+		bookCatalog.addBook(book4);
+		
 		UI ui = new UI();
 
 		ui.printHeader();
 
-		ui.printBookCatalog(bookCatalog.getBookArray());
+		ui.printBookCatalog(bookCatalog.getBookMap());
 		System.out.println();
 
 		System.out.println("..........................For DVD........................................");
-		System.out.println(dvd1.lend(customer));
-		dvd1.licence();
+	//	System.out.println(dvd1.lend(customer));
+		//dvd1.licence();
 		//System.out.println(dvd1.getTitle());
 		//System.out.println(dvd1.getTitle());
-		System.out.println(dvd1.lend(customer));
-		System.out.println(dvd1.lend(customer));
-		System.out.print("DVDs can be loaned for: "+dvd1.getLoanPeriod()+" days");
+		//System.out.println(dvd1.lend(customer));
+		//System.out.println(dvd1.lend(customer));
+		//System.out.print("DVDs can be loaned for: "+dvd1.getLoanPeriod()+" days");
 		System.out.println();
 
 		System.out.println("..........................For Lending a Book.....................................");

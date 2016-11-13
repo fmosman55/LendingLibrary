@@ -11,19 +11,19 @@
 package com.fosmanhost.lendinglibrary.models;
 public abstract class Material 
 {
-	private int id;
+	private String id;
 	private String title;
 	private String branch;
 	private Customer borrower;
 
-	public Material(int id, String title, String branch) {
+	public Material(String id, String title, String branch) {
 		//super();
 		this.id = id;
 		this.title = title;
 		this.branch = branch;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -35,7 +35,7 @@ public abstract class Material
 		return branch;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -66,7 +66,7 @@ public abstract class Material
 	}
 	
 	//an abstract method which must be overriden in child classes
-public abstract int getLoanPeriod();
+public abstract String getLoanPeriod();
 
 //toString Method
 public String toString()

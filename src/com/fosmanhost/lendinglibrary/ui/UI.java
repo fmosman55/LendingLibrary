@@ -4,6 +4,8 @@
 //This is the UI class of the Lending Library Application.
 package com.fosmanhost.lendinglibrary.ui;
 
+import java.util.TreeMap;
+
 import com.fosmanhost.lendinglibrary.models.Book;
 
 public class UI 
@@ -47,13 +49,11 @@ public class UI
 		
 	}
 
-public void printBookCatalog(Book[] bookCatalog)
+public void printBookCatalog(TreeMap<String, Book> bookCatalog)
 {
-	for(int counter = 0; counter < bookCatalog.length; counter++)
+	for(Book nextBook : bookCatalog.values())
 	{
-		if(bookCatalog[counter] != null)
-		printBook(bookCatalog[counter]);
-		
+		printBook(nextBook);
 	}
 	
 }

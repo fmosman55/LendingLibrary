@@ -32,7 +32,8 @@ private int id;
 		startDate = new Date();
 		
 		GregorianCalendar gCal = new GregorianCalendar();
-		gCal.add(GregorianCalendar.DAY_OF_WEEK, 14);
+		//gCal.add(GregorianCalendar.DAY_OF_WEEK, 14);
+		gCal.add(GregorianCalendar.DAY_OF_MONTH,7);
 		this.dueDate = gCal.getTime();
 		
 		status = LoanStatus.CURRENT;
@@ -41,6 +42,7 @@ private int id;
 	@Override
 	public String toString() {
 		//return "Loan [id=" + id + ", customer=" + customer.getMailingName() + ", book=" + book.getTitle() + "]";
+		
 		return "The Book Id No: " + id +", " + book.getTitle()+ ", Lended to: " + customer.getMailingName() ;
 	}
 

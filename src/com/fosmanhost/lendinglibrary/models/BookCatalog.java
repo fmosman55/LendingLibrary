@@ -4,35 +4,54 @@
 //This is the BookCatalog class of the Lending Library Application.
 package com.fosmanhost.lendinglibrary.models;
 
+import java.util.TreeMap;
 public class BookCatalog
 {
-
-	private Book[] bookArray = new Book[100];
-	private int nextPosition = 0;
-
-	public Book[] getBookArray()
+	//
+	/*The Integer class wraps a value of the primitive type int in an object. 
+	An object of type Integer contains a single field whose type is int.
+	 */
+	
+	//Constructor
+	public BookCatalog()
 	{
-		return bookArray;
+		bookMap = new TreeMap<String, Book>();
+		//bookMap = new TreeMap<String, Book>();
+	}
+	private TreeMap<String, Book> bookMap;
+
+	public TreeMap<String, Book> getBookMap()
+	{
+		return bookMap;
 	}
 
+	public int getNumberOfBooks()
+	{
+		return bookMap.size();
+	}
 	//add book method
 	public void addBook(Book newBook)
 	{
-		bookArray[nextPosition] = newBook;
-		nextPosition++;
+		bookMap.put(newBook.getId(), newBook);
 	}
-	
+
 	//find method
 	public Book findBook(String title) throws BookNotFoundException
 	{
-		for(int counter = 0; counter <nextPosition; counter++)
-		{
-			if(bookArray[counter].getTitle().equalsIgnoreCase(title));
-			return bookArray[counter];
+		title = title.trim();
+		for(Book nextBook : bookMap.values())
+		{ 
+			if(nextBook.getTitle().equalsIgnoreCase(title));
+			{
+				return nextBook;
+			}
 		}
 		throw new BookNotFoundException();
-			//return null;
+	}
+
+	@Override
+	public String toString() {
+		return ""+bookMap;
 	}
 	
-
 }
