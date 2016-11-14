@@ -71,7 +71,8 @@ public abstract String getLoanPeriod();
 //toString Method
 public String toString()
 {
-	return getTitle();
+	//return getTitle();
+	return id + " : "+ title;
 }
 
 //equals() method that compare two strings

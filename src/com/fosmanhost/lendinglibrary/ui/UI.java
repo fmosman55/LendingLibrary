@@ -7,6 +7,7 @@ package com.fosmanhost.lendinglibrary.ui;
 import java.util.TreeMap;
 
 import com.fosmanhost.lendinglibrary.models.Book;
+import com.fosmanhost.lendinglibrary.models.Material;
 
 public class UI 
 {
@@ -57,4 +58,16 @@ public void printBookCatalog(TreeMap<String, Book> bookCatalog)
 	}
 	
 }
+
+//print material catalog
+public void printMaterialCatalog(TreeMap<String, Material> materialCatalog)
+{
+	for(Material nextMaterial : materialCatalog.values())
+	{
+		System.out.println(nextMaterial.toString());
+		//printBook(nextMaterial);
+	}
+	
+}
+
 }

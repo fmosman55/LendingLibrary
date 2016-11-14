@@ -13,7 +13,7 @@ public class CustomerRecords
 	}
 	
 	//add method
-	public void addCustomer(Customer customer)
+	public void add(Customer customer)
 	{
 		records.add(customer);
 	}

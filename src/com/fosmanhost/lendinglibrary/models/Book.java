@@ -54,11 +54,20 @@ public class Book extends Material
 	//book repair method
 	public void sendForRepair()
 	{
-		System.out.println("Boo has been sent for repair");
+		System.out.println("Book has been sent for repair");
 	}
 	
 	//Overriden Method
 	public String getLoanPeriod()
 	{return "7";}
+	
+	@Override
+	public String toString()
+	{
+		return "BOOK: "+getId()+" "+getTitle() +" / "+getAuthor();
+		
+	}
+	
+	
 
 }

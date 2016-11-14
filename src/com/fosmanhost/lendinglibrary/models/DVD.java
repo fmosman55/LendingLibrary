@@ -51,4 +51,11 @@ public String getCatalogNo() {
 public void setCatalogNo(String catalogNo) {
 	this.catalogNo = catalogNo;
 }
+
+@Override
+public String toString()
+{
+	return "DVD: "+getId()+" "+getTitle() +" / "+director;
+	
+}
 }

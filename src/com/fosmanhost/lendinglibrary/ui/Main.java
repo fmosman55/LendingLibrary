@@ -11,12 +11,12 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import com.fosmanhost.lendinglibrary.models.Book;
-import com.fosmanhost.lendinglibrary.models.BookCatalog;
-import com.fosmanhost.lendinglibrary.models.BookNotFoundException;
 import com.fosmanhost.lendinglibrary.models.Customer;
+import com.fosmanhost.lendinglibrary.models.DVD;
 import com.fosmanhost.lendinglibrary.models.Loan;
 import com.fosmanhost.lendinglibrary.models.LoanAlreadyExistsException;
 import com.fosmanhost.lendinglibrary.models.LoansRegistry;
+import com.fosmanhost.lendinglibrary.models.MaterialCatalog;
 import com.fosmanhost.lendlibrary.utilities.GenderType;
 
 public class Main {
@@ -57,7 +57,7 @@ public class Main {
 
 
 		//Book[] bookCatalog= new Book[10];
-		BookCatalog bookCatalog = new BookCatalog();
+		MaterialCatalog materialCatalog = new MaterialCatalog();
 
 		Book book1 = new Book("1123","Better in Java", "Faisal Osman","12345", "Mogadishu", 400);
 		Book book2 = new Book("299X","Nutshell in Java", "Abdul Hussein","34567", "Harringay",450);
@@ -65,8 +65,8 @@ public class Main {
 		Book book4 = new Book("199L","More Better in Java", "Abdul Hussein","34567", "Harringay",450);
 		
 		//Book book2 = new Book(2,"More Better in Java", "Abdul Hussein", "34567");
-		//DVD dvd1 = new DVD("1","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
-		//DVD dvd2 = new DVD("1","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
+		DVD dvd1 = new DVD("1","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
+		DVD dvd2 = new DVD("2","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",125);
 
 		//DVD dvd3 = new DVD("2","Epic Film about Java in the Jungle", "London","Faisal and Abdul","1234ABC",200);
 		//bookCatalog[0] = book1;
@@ -74,16 +74,18 @@ public class Main {
 
 		book1.relocate("Harringay London");
 
-		bookCatalog.addBook(book1);
-		bookCatalog.addBook(book2);
-		bookCatalog.addBook(book3);
-		bookCatalog.addBook(book4);
+		materialCatalog.addMaterial(book1);
+		materialCatalog.addMaterial(book2);
+		materialCatalog.addMaterial(book3);
+		materialCatalog.addMaterial(book4);
+		materialCatalog.addMaterial(dvd1);
+		materialCatalog.addMaterial(dvd2);
 		
 		UI ui = new UI();
 
 		ui.printHeader();
 
-		ui.printBookCatalog(bookCatalog.getBookMap());
+		ui.printMaterialCatalog(materialCatalog.getMap());
 		System.out.println();
 
 		System.out.println("..........................For DVD........................................");
@@ -105,16 +107,16 @@ public class Main {
 		System.out.println("..........................For find method........................................");
 
 
-		try {
+		/*try {
 
-			Book foundBook = bookCatalog.findBook("Better in Java");
+			Book foundBook = materialCatalog.findBook("Better in Java");
 			System.out.println("We found your book of: "+foundBook.getTitle());
 		}
 
 		catch (BookNotFoundException e)
 		{
 			System.out.println("Sorry!! We cound not find the book you are looking for:");
-		}
+		}*/
 
 		//lending a book to a customer
 		System.out.println("..........................Lending........................................");
