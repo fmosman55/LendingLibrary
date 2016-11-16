@@ -5,50 +5,51 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.fosmanhost.lendinglibrary.models.Book;
-import com.fosmanhost.lendinglibrary.models.BookCatalog;
-import com.fosmanhost.lendinglibrary.models.BookNotFoundException;
+import com.fosmanhost.lendinglibrary.models.Material;
+import com.fosmanhost.lendinglibrary.models.MaterialCatalogMemoryVersion;
+import com.fosmanhost.lendinglibrary.models.MaterialNotFoundException;
 
-public class BookCatalogTest {
+public class MaterialCatalogTest {
 
 	//global variables
-	private BookCatalog bc;
+	private MaterialCatalogMemoryVersion bc;
 	private Book book1;
 	
 	
-	public BookCatalogTest()
+	public MaterialCatalogTest()
 	{
-		bc = new BookCatalog();
+		bc = new MaterialCatalogMemoryVersion();
 		book1 = new Book("1","","","","",10);
-		bc.addBook(book1);
+		bc.addMaterial(book1);
 	}
 	// add a book test method
 	@Test
 	public void testAddABook() {
 
-		//BookCatalog bc = new BookCatalog();
-		int initialNumber = bc.getNumberOfBooks();
+		//MaterialCatalog bc = new MaterialCatalog();
+		int initialNumber = bc.getNumberOfMaterials();
 
 		Book book = new Book("2","","","","",10);
-		bc.addBook(book);
+		bc.addMaterial(book);
 
-		assertTrue(initialNumber == bc.getNumberOfBooks() -1);
+		assertTrue(initialNumber == bc.getNumberOfMaterials() -1);
 	}
 	
 	//find a book test method
 	
     @Test
-	public void testFindABook() {
+	public void testFindAMaterial() {
 
-		//BookCatalog bc = new BookCatalog();
+		//MaterialCatalog bc = new MaterialCatalog();
 		//int initialNumber = bc.getNumberOfBooks();
 
 		//Book book = new Book(1,"learning Java","","","",10);
-		//bc.addBook(book);
+		//bc.addMaterial(book);
 		try
 		{
-			Book founndbook  = bc.findBook("Learning Java");
+			Material founndbook  = bc.findMaterial("Learning Java");
 		}
-		catch (BookNotFoundException e)
+		catch (MaterialNotFoundException e)
 		{  
 			System.out.println("Something Went Wrong");
 			
@@ -60,16 +61,16 @@ public class BookCatalogTest {
     @Test
   	public void testFindABookIgnoreCase() {
 
-  		//BookCatalog bc = new BookCatalog();
+  		//MaterialCatalog bc = new MaterialCatalog();
   		//int initialNumber = bc.getNumberOfBooks();
 
   		//Book book = new Book(1,"learning Java","","","",10);
-  		//bc.addBook(book);
+  		//bc.addMaterial(book);
   		try
   		{
-  			Book founndbook  = bc.findBook("learning Java");
+  			Material founndbook  = bc.findMaterial("learning Java");
   		}
-  		catch (BookNotFoundException e)
+  		catch (MaterialNotFoundException e)
   		{  
   			System.out.println("Something Went Wrong");
   			
@@ -83,10 +84,10 @@ public class BookCatalogTest {
    /* @Test(expected = BookNotFoundException.class)
 	public void testFindABookThatDoestntExist() throws BookNotFoundException
 	{
-		BookCatalog bc = new BookCatalog();
+		MaterialCatalog bc = new MaterialCatalog();
 		
 		Book book = new Book(1,"learning Java","","","",10);
-		bc.addBook(book);
+		bc.addMaterial(book);
 		
 		Book foundBook  = bc.findBook("learning More Java");
 

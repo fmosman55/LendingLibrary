@@ -55,7 +55,7 @@ public void setCatalogNo(String catalogNo) {
 @Override
 public String toString()
 {
-	return "DVD: "+getId()+" "+getTitle() +" / "+director;
+	return "DVD:  "+getId()+" "+getTitle() +" | "+director;
 	
 }
 }

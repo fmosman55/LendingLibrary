@@ -50,14 +50,14 @@ public class UI
 		
 	}
 
-public void printBookCatalog(TreeMap<String, Book> bookCatalog)
+/*public void printBookCatalog(TreeMap<String, Book> bookCatalog)
 {
 	for(Book nextBook : bookCatalog.values())
 	{
 		printBook(nextBook);
 	}
 	
-}
+}*/
 
 //print material catalog
 public void printMaterialCatalog(TreeMap<String, Material> materialCatalog)

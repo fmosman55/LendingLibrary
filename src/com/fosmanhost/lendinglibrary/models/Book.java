@@ -64,7 +64,7 @@ public class Book extends Material
 	@Override
 	public String toString()
 	{
-		return "BOOK: "+getId()+" "+getTitle() +" / "+getAuthor();
+		return "BOOK: "+getId()+" "+getTitle() +" | "+getAuthor();
 		
 	}
 	

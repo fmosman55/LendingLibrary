@@ -1,4 +1,4 @@
-//This is a course of Java Programming Language course provided by Virtual Pair Programming on Java.
+/*//This is a course of Java Programming Language course provided by Virtual Pair Programming on Java.
 //Author: Fasial Osman and I will be doing this course until I finish it. Wish me LUCK.
 //Date:02/11/2016............................End of the course will be.......
 
@@ -48,3 +48,4 @@ public class CodeCollection {
 	
 
 }
+*/

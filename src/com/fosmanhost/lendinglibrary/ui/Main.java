@@ -16,7 +16,8 @@ import com.fosmanhost.lendinglibrary.models.DVD;
 import com.fosmanhost.lendinglibrary.models.Loan;
 import com.fosmanhost.lendinglibrary.models.LoanAlreadyExistsException;
 import com.fosmanhost.lendinglibrary.models.LoansRegistry;
-import com.fosmanhost.lendinglibrary.models.MaterialCatalog;
+import com.fosmanhost.lendinglibrary.models.MaterialCatalogInterface;
+import com.fosmanhost.lendinglibrary.models.MaterialCatalogMemoryVersion;
 import com.fosmanhost.lendlibrary.utilities.GenderType;
 
 public class Main {
@@ -57,7 +58,9 @@ public class Main {
 
 
 		//Book[] bookCatalog= new Book[10];
-		MaterialCatalog materialCatalog = new MaterialCatalog();
+		//MaterialCatalogInterface mci = new MaterialCatalogMemoryVersion();
+		//MaterialCatalogInterface mci;
+		MaterialCatalogInterface materialCatalog = new MaterialCatalogMemoryVersion();
 
 		Book book1 = new Book("1123","Better in Java", "Faisal Osman","12345", "Mogadishu", 400);
 		Book book2 = new Book("299X","Nutshell in Java", "Abdul Hussein","34567", "Harringay",450);
@@ -85,7 +88,7 @@ public class Main {
 
 		ui.printHeader();
 
-		ui.printMaterialCatalog(materialCatalog.getMap());
+		ui.printMaterialCatalog(materialCatalog.getMaterialMap());
 		System.out.println();
 
 		System.out.println("..........................For DVD........................................");
