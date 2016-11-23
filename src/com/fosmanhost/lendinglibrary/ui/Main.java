@@ -16,8 +16,11 @@ import com.fosmanhost.lendinglibrary.models.DVD;
 import com.fosmanhost.lendinglibrary.models.Loan;
 import com.fosmanhost.lendinglibrary.models.LoanAlreadyExistsException;
 import com.fosmanhost.lendinglibrary.models.LoansRegistry;
+import com.fosmanhost.lendinglibrary.models.Material;
+import com.fosmanhost.lendinglibrary.models.MaterialCatalogDB;
 import com.fosmanhost.lendinglibrary.models.MaterialCatalogInterface;
 import com.fosmanhost.lendinglibrary.models.MaterialCatalogMemoryVersion;
+import com.fosmanhost.lendinglibrary.models.MaterialNotFoundException;
 import com.fosmanhost.lendlibrary.utilities.GenderType;
 
 public class Main {
@@ -55,13 +58,9 @@ public class Main {
 		System.out.println(nf2.format(d));
 		System.out.println("..........................Just a Line........................................");
 
-
-
-		//Book[] bookCatalog= new Book[10];
-		//MaterialCatalogInterface mci = new MaterialCatalogMemoryVersion();
-		//MaterialCatalogInterface mci;
-		MaterialCatalogInterface materialCatalog = new MaterialCatalogMemoryVersion();
-
+		
+		MaterialCatalogInterface materialCatalog = new MaterialCatalogDB();
+		
 		Book book1 = new Book("1123","Better in Java", "Faisal Osman","12345", "Mogadishu", 400);
 		Book book2 = new Book("299X","Nutshell in Java", "Abdul Hussein","34567", "Harringay",450);
 		Book book3 = new Book("X100X","Mastering Java", "Faisal Osman","12345", "Mogadishu", 400);
@@ -75,15 +74,27 @@ public class Main {
 		//bookCatalog[0] = book1;
 		//bookCatalog[1] = book2;
 
-		book1.relocate("Harringay London");
+	//	book1.relocate("Harringay London");
 
-		materialCatalog.addMaterial(book1);
-		materialCatalog.addMaterial(book2);
-		materialCatalog.addMaterial(book3);
-		materialCatalog.addMaterial(book4);
-		materialCatalog.addMaterial(dvd1);
-		materialCatalog.addMaterial(dvd2);
+//		materialCatalog.addMaterial(book1);
+//		materialCatalog.addMaterial(book2);
+//		materialCatalog.addMaterial(book3);
+//		materialCatalog.addMaterial(book4);
+//		materialCatalog.addMaterial(dvd1);
+//		materialCatalog.addMaterial(dvd2);
 		
+		
+		System.out.println("There are:"+materialCatalog.getNumberOfMaterials()+" items in the library");
+		try
+		{
+			Material foundMaterial =  materialCatalog.findMaterial("Java");
+			System.out.println(foundMaterial);
+		}
+		catch(MaterialNotFoundException e)
+		{
+			System.out.println("No Matching Materials found");
+			
+		}
 		UI ui = new UI();
 
 		ui.printHeader();

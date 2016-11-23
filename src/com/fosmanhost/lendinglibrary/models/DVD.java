@@ -58,4 +58,34 @@ public String toString()
 	return "DVD:  "+getId()+" "+getTitle() +" | "+director;
 	
 }
+
+public String getDirector() {
+	return director;
+}
+
+public void setDirector(String director) {
+	this.director = director;
+}
+
+public int getRunningTime() {
+	return runningTime;
+}
+
+public void setRunningTime(int runningTime) {
+	this.runningTime = runningTime;
+}
+
+public boolean isLicenced() {
+	return licenced;
+}
+
+public void setLicenced(boolean licenced) {
+	this.licenced = licenced;
+}
+
+public boolean getLicenced()
+{
+	return licenced;
+}
+
 }
