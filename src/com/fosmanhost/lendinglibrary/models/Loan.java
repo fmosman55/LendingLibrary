@@ -13,6 +13,8 @@ import java.util.GregorianCalendar;
 
 import com.fosmanhost.lendlibrary.utilities.LoanStatus;
 
+
+
 public class Loan
 {	
 private int id;

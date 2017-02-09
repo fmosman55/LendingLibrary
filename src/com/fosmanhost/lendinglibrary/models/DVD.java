@@ -56,7 +56,6 @@ public void setCatalogNo(String catalogNo) {
 public String toString()
 {
 	return "DVD:  "+getId()+" "+getTitle() +" | "+director;
-	
 }
 
 public String getDirector() {
